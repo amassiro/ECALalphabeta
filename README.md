@@ -17,3 +17,7 @@ Install
     scramv1 b -j 5
     
 
+Run
+
+    FitAlphaBeta     template_histograms_ECAL_Run2016B_runs_271983_272818.txt 
+
