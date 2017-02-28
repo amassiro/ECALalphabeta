@@ -50,13 +50,20 @@ int main(int argc, char** argv) {
 //   pulse.push_back(0.039428);
   
   //                                                       A    [ (1 + Dt / (alpha*beta)) ^ alpha ] * exp (- Dt/beta)  
-  TF1 *function_alphabeta = new TF1("function_alphabeta","[0] * pow(1 + (x-[1]) / ([2]*[3]) , [2] ) * exp ( - (x-[1]) / [3])",0,25*7);
+  TF1 *function_alphabeta = new TF1("function_alphabeta","[0] * pow(1 + (x-[1]) / ([2]*[3]) , [2] ) * exp ( - (x-[1]) / [3])",0,25*6.5);
   
   TGraph* gr_pulse = new TGraph ();
   gr_pulse->SetMarkerSize(2);
   gr_pulse->SetMarkerStyle(20);
   
    
+  std::string output_file_tail = "";
+  if (argc >=3) {
+    std::cout << " Output file = " << argv[2] << std::endl;
+    output_file_tail =  argv[2];
+  }
+
+    
   std::cout << " Input file = " << argv[1] << std::endl;
   
   std::ifstream file (argv[1]); 
@@ -72,11 +79,17 @@ int main(int argc, char** argv) {
     return false;
   }
 
-  TFile* fileOutSummary = new TFile ("testSummary.root", "RECREATE");
+  TString nametemp;
+  nametemp = Form ("testSummary%s.root", output_file_tail.c_str());
+  TFile* fileOutSummary = new TFile (nametemp.Data(), "RECREATE");
   TH2F* h_EB_alpha = new TH2F ("h_EB_alpha", "alpha", 360, 0.5, 360.5,  171, -85.5, 85.5);                //  360,0.5,360.5,171,-85.5,85.5               360, 0, 360, 85*2+1, -85, 85
   TH2F* h_EB_beta  = new TH2F ("h_EB_beta",  "beta",  360, 0.5, 360.5,  171, -85.5, 85.5);
   TH2F* h_EB_time  = new TH2F ("h_EB_time",  "time",  360, 0.5, 360.5,  171, -85.5, 85.5);
   TH2F* h_EB_ampl  = new TH2F ("h_EB_ampl",  "ampl",  360, 0.5, 360.5,  171, -85.5, 85.5);
+  TH2F* h_EB_unc__alpha = new TH2F ("h_EB_unc__alpha", "alpha", 360, 0.5, 360.5,  171, -85.5, 85.5);                //  360,0.5,360.5,171,-85.5,85.5               360, 0, 360, 85*2+1, -85, 85
+  TH2F* h_EB_unc__beta  = new TH2F ("h_EB_unc__beta",  "beta",  360, 0.5, 360.5,  171, -85.5, 85.5);
+  TH2F* h_EB_unc__time  = new TH2F ("h_EB_unc__time",  "time",  360, 0.5, 360.5,  171, -85.5, 85.5);
+  TH2F* h_EB_unc__ampl  = new TH2F ("h_EB_unc__ampl",  "ampl",  360, 0.5, 360.5,  171, -85.5, 85.5);
   TH2F* h_EB_max   = new TH2F ("h_EB_max",   "max",   360, 0.5, 360.5,  171, -85.5, 85.5);
   TH2F* h_EB_chi2  = new TH2F ("h_EB_chi2", "chi2",   360, 0.5, 360.5,  171, -85.5, 85.5);
   TH2F* h_EB_occupancy  = new TH2F ("h_EB_occupancy", "occupancy",   360, 0.5, 360.5,  171, -85.5, 85.5);
@@ -92,6 +105,10 @@ int main(int argc, char** argv) {
   TH2F* h_EE_beta  = new TH2F ("h_EE_beta",  "beta",  200, 0.5, 200.5,  100, 0.5, 100.5);
   TH2F* h_EE_time  = new TH2F ("h_EE_time",  "time",  200, 0.5, 200.5,  100, 0.5, 100.5);
   TH2F* h_EE_ampl  = new TH2F ("h_EE_ampl",  "ampl",  200, 0.5, 200.5,  100, 0.5, 100.5);
+  TH2F* h_EE_unc__alpha = new TH2F ("h_EE_unc__alpha", "alpha", 200, 0.5, 200.5,  100, 0.5, 100.5);
+  TH2F* h_EE_unc__beta  = new TH2F ("h_EE_unc__beta",  "beta",  200, 0.5, 200.5,  100, 0.5, 100.5);
+  TH2F* h_EE_unc__time  = new TH2F ("h_EE_unc__time",  "time",  200, 0.5, 200.5,  100, 0.5, 100.5);
+  TH2F* h_EE_unc__ampl  = new TH2F ("h_EE_unc__ampl",  "ampl",  200, 0.5, 200.5,  100, 0.5, 100.5);
   TH2F* h_EE_max   = new TH2F ("h_EE_max",   "max",   200, 0.5, 200.5,  100, 0.5, 100.5);
   TH2F* h_EE_chi2  = new TH2F ("h_EE_chi2", "chi2",   200, 0.5, 200.5,  100, 0.5, 100.5);
   TH2F* h_EE_occupancy  = new TH2F ("h_EE_occupancy", "occupancy",   200, 0.5, 200.5,  100, 0.5, 100.5);
@@ -103,8 +120,11 @@ int main(int argc, char** argv) {
   TH2F* h_EE_sam5  = new TH2F ("h_EE_sam5", "sam5",   200, 0.5, 200.5,  100, 0.5, 100.5);
   TH2F* h_EE_sam6  = new TH2F ("h_EE_sam6", "sam6",   200, 0.5, 200.5,  100, 0.5, 100.5);
   
-
-  TFile* fileOut = new TFile ("testPulses.root", "RECREATE");
+  nametemp = Form ("testPulsesProblem%s.root", output_file_tail.c_str());
+  TFile* fileOutProblem = new TFile (nametemp.Data(), "RECREATE");
+  
+  nametemp = Form ("testPulses%s.root", output_file_tail.c_str());
+  TFile* fileOut = new TFile (nametemp.Data(), "RECREATE");
   
   int counter = 0;
   while(!file.eof()) {
@@ -125,6 +145,10 @@ int main(int argc, char** argv) {
       
       for (int i=0; i<(10-3); i++) {
         line >> value; 
+        
+        //---- FIX: how on Earth can this be negative???
+        if (value<0) value = 0;
+         
         pulse.push_back(value);
       }
      
@@ -151,24 +175,48 @@ int main(int argc, char** argv) {
      
      gr_pulse->Clear();
      
-     function_alphabeta->SetParameter (0, 1.1);   // A
-     function_alphabeta->SetParameter (1, 0.0);   // t_0    
-     function_alphabeta->SetParameter (2, 20.0);   // alpha
+     function_alphabeta->SetParName(0, "A");
+     function_alphabeta->SetParName(1, "t_0");
+     function_alphabeta->SetParName(2, "alpha");
+     function_alphabeta->SetParName(3, "beta");
+     
+     function_alphabeta->SetParameter (0, 1.0);    // A
+     function_alphabeta->SetParameter (1, 50.0);   // t_0    
+     function_alphabeta->SetParameter (2, 10.0);   // alpha
      function_alphabeta->SetParameter (3, 43.0);   // beta
      
-     function_alphabeta->SetParLimits (2, 0, 200);   // alpha
-     function_alphabeta->SetParLimits (3, 0, 200);   // beta
+     function_alphabeta->SetParLimits (0, 0.7, 1.3);    // A
+     function_alphabeta->SetParLimits (1, 15, 90);     // t_0
+     function_alphabeta->SetParLimits (2, 0.5, 20);     // alpha
+     function_alphabeta->SetParLimits (3, 20, 150);     // beta
      
      
      for (int ipoint = 0; ipoint < (10-3); ipoint++) {
        gr_pulse->SetPoint (ipoint, ipoint * 25.,  pulse.at(ipoint));
      }  
      
-     gr_pulse->Fit ("function_alphabeta", "Q");
+     gr_pulse->Fit ("function_alphabeta", "RQM");
+     gr_pulse->Fit ("function_alphabeta", "RQM");
+     gr_pulse->Fit ("function_alphabeta", "RQM");
      
      //---- improved the fit if chi2 is too big
-     if (function_alphabeta->GetChisquare() > 0.3) { //---- threshold set after looking at the plot
-       gr_pulse->Fit ("function_alphabeta", "QM");       
+     if (function_alphabeta->GetChisquare() > 0.1) { //---- threshold set after looking at the plot
+//        if (function_alphabeta->GetChisquare() > 0.3) { //---- threshold set after looking at the plot
+//        gr_pulse->Fit ("function_alphabeta", "RQM");       
+//        gr_pulse->Fit ("function_alphabeta", "RQM");       
+//        gr_pulse->Fit ("function_alphabeta", "RQM");  
+       
+//        if (function_alphabeta->GetChisquare() > 0.1) {
+       function_alphabeta->SetRange(0.5, 25*6.5);
+       gr_pulse->Fit ("function_alphabeta", "RQM");       
+       gr_pulse->Fit ("function_alphabeta", "RQM");       
+       gr_pulse->Fit ("function_alphabeta", "RQM");       
+       function_alphabeta->SetRange(0.0, 25*6.5);
+       //        }
+       fileOutProblem->cd();
+       TString name = Form ("pulse_%d_%d", iDet, detId);
+       gr_pulse->Write(name.Data());
+       fileOut->cd();
      }
      
      if (ieta != -99) {
@@ -176,6 +224,10 @@ int main(int argc, char** argv) {
        h_EB_beta  -> Fill (iphi, ieta, function_alphabeta->GetParameter(3));
        h_EB_time  -> Fill (iphi, ieta, function_alphabeta->GetParameter(1));
        h_EB_ampl  -> Fill (iphi, ieta, function_alphabeta->GetParameter(0));
+       h_EB_unc__alpha -> Fill (iphi, ieta, function_alphabeta->GetParError(2));
+       h_EB_unc__beta  -> Fill (iphi, ieta, function_alphabeta->GetParError(3));
+       h_EB_unc__time  -> Fill (iphi, ieta, function_alphabeta->GetParError(1));
+       h_EB_unc__ampl  -> Fill (iphi, ieta, function_alphabeta->GetParError(0));
        h_EB_max   -> Fill (iphi, ieta, function_alphabeta->GetMaximum());
        h_EB_chi2  -> Fill (iphi, ieta, function_alphabeta->GetChisquare());
        h_EB_occupancy  -> Fill (iphi, ieta, 1);
@@ -193,6 +245,10 @@ int main(int argc, char** argv) {
        h_EE_beta  -> Fill (iz < 0 ? ix : ix+100, iy, function_alphabeta->GetParameter(3));
        h_EE_time  -> Fill (iz < 0 ? ix : ix+100, iy, function_alphabeta->GetParameter(1));
        h_EE_ampl  -> Fill (iz < 0 ? ix : ix+100, iy, function_alphabeta->GetParameter(0));
+       h_EE_unc__alpha -> Fill (iz < 0 ? ix : ix+100, iy, function_alphabeta->GetParError(2));
+       h_EE_unc__beta  -> Fill (iz < 0 ? ix : ix+100, iy, function_alphabeta->GetParError(3));
+       h_EE_unc__time  -> Fill (iz < 0 ? ix : ix+100, iy, function_alphabeta->GetParError(1));
+       h_EE_unc__ampl  -> Fill (iz < 0 ? ix : ix+100, iy, function_alphabeta->GetParError(0));
        h_EE_max   -> Fill (iz < 0 ? ix : ix+100, iy, function_alphabeta->GetMaximum());
        h_EE_chi2  -> Fill (iz < 0 ? ix : ix+100, iy, function_alphabeta->GetChisquare());      
        h_EE_occupancy  -> Fill (iz < 0 ? ix : ix+100, iy, 1);      
@@ -230,6 +286,10 @@ int main(int argc, char** argv) {
   h_EB_beta  -> Write();
   h_EB_time  -> Write();
   h_EB_ampl  -> Write();
+  h_EB_unc__alpha -> Write();
+  h_EB_unc__beta  -> Write();
+  h_EB_unc__time  -> Write();
+  h_EB_unc__ampl  -> Write();
   h_EB_max   -> Write();
   h_EB_chi2  -> Write();
   h_EB_occupancy  -> Write();
@@ -245,6 +305,10 @@ int main(int argc, char** argv) {
   h_EE_beta  -> Write();
   h_EE_time  -> Write();
   h_EE_ampl  -> Write();
+  h_EE_unc__alpha -> Write();
+  h_EE_unc__beta  -> Write();
+  h_EE_unc__time  -> Write();
+  h_EE_unc__ampl  -> Write();
   h_EE_max   -> Write();
   h_EE_chi2  -> Write();
   h_EE_occupancy  -> Write();

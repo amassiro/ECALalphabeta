@@ -19,5 +19,7 @@ Install
 
 Run
 
-    FitAlphaBeta     template_histograms_ECAL_Run2016B_runs_271983_272818.txt 
+    FitAlphaBeta     template_histograms_ECAL_Run2016B_runs_271983_272818.txt        runs_271983_272818
+
+    FitAlphaBeta     template_histograms_ECAL_Run2016B_runs_271983_272818.txt       
 
