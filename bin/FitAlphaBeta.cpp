@@ -213,16 +213,19 @@ int main(int argc, char** argv) {
        gr_pulse->Fit ("function_alphabeta", "RQM");       
        function_alphabeta->SetRange(0.0, 25*6.5);
        //        }
-       fileOutProblem->cd();
-       TString name = Form ("pulse_%d_%d", iDet, detId);
-       gr_pulse->Write(name.Data());
-       fileOut->cd();
+       
+       if (function_alphabeta->GetChisquare() > 0.1) { 
+         fileOutProblem->cd();
+         TString name = Form ("pulse_%d_%d", iDet, detId);
+         gr_pulse->Write(name.Data());
+         fileOut->cd();
+       }
      }
      
      if (ieta != -99) {
        h_EB_alpha -> Fill (iphi, ieta, function_alphabeta->GetParameter(2));
        h_EB_beta  -> Fill (iphi, ieta, function_alphabeta->GetParameter(3));
-       h_EB_time  -> Fill (iphi, ieta, function_alphabeta->GetParameter(1));
+       h_EB_time  -> Fill (iphi, ieta, function_alphabeta->GetParameter(1) - 50.);
        h_EB_ampl  -> Fill (iphi, ieta, function_alphabeta->GetParameter(0));
        h_EB_unc__alpha -> Fill (iphi, ieta, function_alphabeta->GetParError(2));
        h_EB_unc__beta  -> Fill (iphi, ieta, function_alphabeta->GetParError(3));
@@ -243,7 +246,7 @@ int main(int argc, char** argv) {
        // thanks SimonePigazzini for the mapping
        h_EE_alpha -> Fill (iz < 0 ? ix : ix+100, iy, function_alphabeta->GetParameter(2));
        h_EE_beta  -> Fill (iz < 0 ? ix : ix+100, iy, function_alphabeta->GetParameter(3));
-       h_EE_time  -> Fill (iz < 0 ? ix : ix+100, iy, function_alphabeta->GetParameter(1));
+       h_EE_time  -> Fill (iz < 0 ? ix : ix+100, iy, function_alphabeta->GetParameter(1) - 50.);
        h_EE_ampl  -> Fill (iz < 0 ? ix : ix+100, iy, function_alphabeta->GetParameter(0));
        h_EE_unc__alpha -> Fill (iz < 0 ? ix : ix+100, iy, function_alphabeta->GetParError(2));
        h_EE_unc__beta  -> Fill (iz < 0 ? ix : ix+100, iy, function_alphabeta->GetParError(3));
