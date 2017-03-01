@@ -45,3 +45,9 @@ Run:
     FitAlphaBeta      template_histograms_ECAL_Run2016_runs_281616_282092.txt          runs_281616_282092
     FitAlphaBeta      template_histograms_ECAL_Run2016_runs_283171_283835.txt          runs_283171_283835
     FitAlphaBeta      template_histograms_ECAL_Run2016_runs_283863_284035.txt          runs_283863_284035
+
+
+Plots:
+
+    r00t test/compare.C\(\"testSummaryruns_283863_284035.root\",\"testSummaryruns_271983_272818.root\"\)
+
