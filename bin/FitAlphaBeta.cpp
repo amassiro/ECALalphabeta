@@ -123,7 +123,7 @@ int main(int argc, char** argv) {
   nametemp = Form ("testPulsesProblem%s.root", output_file_tail.c_str());
   TFile* fileOutProblem = new TFile (nametemp.Data(), "RECREATE");
   
-  nametemp = Form ("testPulses%s.root", output_file_tail.c_str());
+  nametemp = Form ("/tmp/amassiro/testPulses%s.root", output_file_tail.c_str());
   TFile* fileOut = new TFile (nametemp.Data(), "RECREATE");
   
   int counter = 0;
