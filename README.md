@@ -88,6 +88,13 @@ Plots:
     r00t -q  test/comparePulse.C\(\"testSummarynew_Run2016_runs_283863_284035.root\",\"testSummaryruns_283863_284035.root\",\"283863_284035\"\)
     
     
+    r00t  test/comparePulse.C\(\"testSummarynew_Run2016_runs_271983_272818.root\",\"testSummarynew_Run2016_runs_283863_284035.root\",\"end-beginning\"\)
+    
+    
+    r00t  test/comparePulse.C\(\"testSummarynew_Run2016_runs_273301_273590.root\",\"testSummarynew_Run2016_runs_283863_284035.root\",\"end-beginning-271983\"\)
+    r00t  test/comparePulse.C\(\"testSummarynew_Run2016_runs_274080_274344.root\",\"testSummarynew_Run2016_runs_283863_284035.root\",\"end-beginning-274080\"\)
+    
+    
     
     
     ./test-run-8x-data-forECAL.sh 10000000
