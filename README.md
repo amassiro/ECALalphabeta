@@ -125,6 +125,18 @@ SR in PF:
     
     r00t  std.root     highzshighgath.root     highzslowgath.root   DrawCompareMultiple.cxx\(\"mll\",80,50,150,\"1\"\)
     
+    r00t  std.root     highzshighgath.root     highzslowgath.root   DrawCompareMultiple.cxx\(\"std_vector_electron_full5x5R9[0]\",100,0.5,1.1,\"1\"\)
+    r00t  std.root     highzshighgath.root     highzslowgath.root   DrawCompareMultiple.cxx\(\"std_vector_electron_energy5x5[0]\",100,10,100,\"1\"\)
+    r00t  std.root     highzshighgath.root     highzslowgath.root   DrawCompareMultiple.cxx\(\"std_vector_electron_ecalPFClusterIso[0]\",100,0,3,\"1\"\)
+    r00t  std.root     highzshighgath.root     highzslowgath.root   DrawCompareMultiple.cxx\(\"jetRho\",100,0,100,\"1\"\)
+    r00t  std.root     highzshighgath.root     highzslowgath.root   DrawCompareMultiple.cxx\(\"std_vector_lepton_pt[0]\",100,0,100,\"1\"\)
+    r00t  std.root     highzshighgath.root     highzslowgath.root   DrawCompareMultiple.cxx\(\"std_vector_electron_R9[0]\",100,0.5,1.1,\"1\"\)
+
+    
+    
+    
+    
+    
     
     
     
