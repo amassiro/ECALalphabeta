@@ -91,11 +91,42 @@ Plots:
     r00t  test/comparePulse.C\(\"testSummarynew_Run2016_runs_271983_272818.root\",\"testSummarynew_Run2016_runs_283863_284035.root\",\"end-beginning\"\)
     
     
-    r00t  test/comparePulse.C\(\"testSummarynew_Run2016_runs_273301_273590.root\",\"testSummarynew_Run2016_runs_283863_284035.root\",\"end-beginning-271983\"\)
-    r00t  test/comparePulse.C\(\"testSummarynew_Run2016_runs_274080_274344.root\",\"testSummarynew_Run2016_runs_283863_284035.root\",\"end-beginning-274080\"\)
+    r00t -q  test/comparePulse.C\(\"testSummarynew_Run2016_runs_273301_273590.root\",\"testSummarynew_Run2016_runs_283863_284035.root\",\"end-beginning-273301\"\)
+    r00t -q  test/comparePulse.C\(\"testSummarynew_Run2016_runs_274080_274344.root\",\"testSummarynew_Run2016_runs_283863_284035.root\",\"end-beginning-274080\"\)
+    r00t -q  test/comparePulse.C\(\"testSummarynew_Run2016_runs_274958_275659.root\",\"testSummarynew_Run2016_runs_283863_284035.root\",\"end-beginning-274958\"\)
+    r00t -q  test/comparePulse.C\(\"testSummarynew_Run2016_runs_275757_275931.root\",\"testSummarynew_Run2016_runs_283863_284035.root\",\"end-beginning-275757\"\)
+    r00t -q  test/comparePulse.C\(\"testSummarynew_Run2016_runs_276315_276587.root\",\"testSummarynew_Run2016_runs_283863_284035.root\",\"end-beginning-276315\"\)
+    r00t -q  test/comparePulse.C\(\"testSummarynew_Run2016_runs_277932_277992.root\",\"testSummarynew_Run2016_runs_283863_284035.root\",\"end-beginning-277932\"\)
+    r00t -q  test/comparePulse.C\(\"testSummarynew_Run2016_runs_278969_278976.root\",\"testSummarynew_Run2016_runs_283863_284035.root\",\"end-beginning-278969\"\)
+    r00t -q  test/comparePulse.C\(\"testSummarynew_Run2016_runs_279115_279116.root\",\"testSummarynew_Run2016_runs_283863_284035.root\",\"end-beginning-279115\"\)
+    r00t -q  test/comparePulse.C\(\"testSummarynew_Run2016_runs_279653_279658.root\",\"testSummarynew_Run2016_runs_283863_284035.root\",\"end-beginning-279653\"\)
+    r00t -q  test/comparePulse.C\(\"testSummarynew_Run2016_runs_279841_279841.root\",\"testSummarynew_Run2016_runs_283863_284035.root\",\"end-beginning-279841\"\)
+    r00t -q  test/comparePulse.C\(\"testSummarynew_Run2016_runs_281616_282092.root\",\"testSummarynew_Run2016_runs_283863_284035.root\",\"end-beginning-281616\"\)
+    r00t -q  test/comparePulse.C\(\"testSummarynew_Run2016_runs_282408_283067.root\",\"testSummarynew_Run2016_runs_283863_284035.root\",\"end-beginning-282408\"\)
+    r00t -q  test/comparePulse.C\(\"testSummarynew_Run2016_runs_283171_283835.root\",\"testSummarynew_Run2016_runs_283863_284035.root\",\"end-beginning-283171\"\)
+    r00t -q  test/comparePulse.C\(\"testSummarynew_Run2016_runs_283863_284035.root\",\"testSummarynew_Run2016_runs_283863_284035.root\",\"end-beginning-283863\"\)
+                                                             
     
     
     
     
-    ./test-run-8x-data-forECAL.sh 10000000
+SR in PF:
+    
+    
+    ./test-run-8x-data-forECAL.sh 100
+    ./test-run-8x-data-forECAL.sh 1000
+    ./test-run-8x-data-forECAL.sh 10000
+    
+    
+    gardener.py  l2selfiller   latino_stepB_data_std_numEvent1000.root    std.root
+    gardener.py  l2selfiller   latino_stepB_data_highzshighgath_numEvent1000.root    highzshighgath.root
+    gardener.py  l2selfiller   latino_stepB_data_highzslowgath_numEvent1000.root     highzslowgath.root
+    
+    
+    r00t  std.root     highzshighgath.root     highzslowgath.root   DrawCompareMultiple.cxx\(\"mll\",80,50,150,\"1\"\)
+    
+    
+    
+    
+    
     
