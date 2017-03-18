@@ -118,9 +118,9 @@ SR in PF:
     ./test-run-8x-data-forECAL.sh 10000
     
     
-    gardener.py  l2selfiller   latino_stepB_data_std_numEvent1000.root    std.root
-    gardener.py  l2selfiller   latino_stepB_data_highzshighgath_numEvent1000.root    highzshighgath.root
-    gardener.py  l2selfiller   latino_stepB_data_highzslowgath_numEvent1000.root     highzslowgath.root
+    gardener.py  l2selfiller   latino_stepB_data_std_numEvent10000.root    std.root
+    gardener.py  l2selfiller   latino_stepB_data_highzshighgath_numEvent10000.root    highzshighgath.root
+    gardener.py  l2selfiller   latino_stepB_data_highzslowgath_numEvent10000.root     highzslowgath.root
     
     
     r00t  std.root     highzshighgath.root     highzslowgath.root   DrawCompareMultiple.cxx\(\"mll\",80,50,150,\"1\"\)
@@ -131,9 +131,13 @@ SR in PF:
     r00t  std.root     highzshighgath.root     highzslowgath.root   DrawCompareMultiple.cxx\(\"jetRho\",100,0,100,\"1\"\)
     r00t  std.root     highzshighgath.root     highzslowgath.root   DrawCompareMultiple.cxx\(\"std_vector_lepton_pt[0]\",100,0,100,\"1\"\)
     r00t  std.root     highzshighgath.root     highzslowgath.root   DrawCompareMultiple.cxx\(\"std_vector_electron_R9[0]\",100,0.5,1.1,\"1\"\)
+    r00t  std.root     highzshighgath.root     highzslowgath.root   DrawCompareMultiple.cxx\(\"std_vector_lepton_eta[0]\",100,-2.5,2.5,\"1\"\)
 
     
     
+    
+    
+    ./test-run-8x-data-forECAL-SRPF.sh  2000
     
     
     
