@@ -139,10 +139,26 @@ SR in PF:
     
     ./test-run-8x-data-forECAL-SRPF.sh  2000
     
+    gardener.py  l2selfiller   latino_stepB_data_std_numEvent10000.root    std.root
+    gardener.py  l2selfiller   latino_stepB_data_highzshighgath_numEvent10000.root    highzshighgath.root
+    gardener.py  l2selfiller   latino_stepB_data_highzslowgath_numEvent10000.root     highzslowgath.root
+
+    
+    gardener.py  l2selfiller   latino_stepB_data_NEW_highzshighgath_numEvent2000.root    srpf.root
+    gardener.py  l2selfiller   latino_stepB_data_NEW_std_numEvent2000.root          std.root
     
     
+    cd /afs/cern.ch/work/a/amassiro/Latinos/Framework/CMSSW_8_0_26_patch1/src/LatinoAnalysis/ShapeAnalysis/test/draw/
+    r00t  std.root     srpf.root       DrawCompareMultiple.cxx\(\"std_vector_electron_full5x5R9[0]\",100,0.5,1.1,\"1\"\)
+    r00t  std.root     srpf.root       DrawCompareMultiple.cxx\(\"std_vector_electron_energy5x5[0]\",100,10,100,\"1\"\)
+    r00t  std.root     srpf.root       DrawCompareMultiple.cxx\(\"std_vector_electron_ecalPFClusterIso[0]\",100,0,3,\"1\"\)
+    r00t  std.root     srpf.root       DrawCompareMultiple.cxx\(\"jetRho\",100,0,100,\"1\"\)
+    r00t  std.root     srpf.root       DrawCompareMultiple.cxx\(\"std_vector_lepton_pt[0]\",100,0,100,\"1\"\)
+    r00t  std.root     srpf.root       DrawCompareMultiple.cxx\(\"std_vector_electron_R9[0]\",100,0.5,1.1,\"1\"\)
+    r00t  std.root     srpf.root       DrawCompareMultiple.cxx\(\"std_vector_lepton_eta[0]\",100,-2.5,2.5,\"1\"\)
     
-    
+    r00t  std.root     srpf.root       DrawCompareMultiple.cxx\(\"std_vector_electron_R9[0]\",100,0.5,1.1,\"abs\(std_vector_lepton_eta[0]\)\<1.5\"\)
+    r00t  std.root     srpf.root       DrawCompareMultiple.cxx\(\"std_vector_electron_R9[0]\",100,0.5,1.1,\"abs\(std_vector_lepton_eta[0]\)\>1.5\"\)
     
     
     
