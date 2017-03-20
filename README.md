@@ -138,6 +138,7 @@ SR in PF:
     
     
     ./test-run-8x-data-forECAL-SRPF.sh  2000
+    ./test-run-8x-data-forECAL-SRPF.sh  20000
     
     gardener.py  l2selfiller   latino_stepB_data_std_numEvent10000.root    std.root
     gardener.py  l2selfiller   latino_stepB_data_highzshighgath_numEvent10000.root    highzshighgath.root
@@ -160,5 +161,8 @@ SR in PF:
     r00t  std.root     srpf.root       DrawCompareMultiple.cxx\(\"std_vector_electron_R9[0]\",100,0.5,1.1,\"abs\(std_vector_lepton_eta[0]\)\<1.5\"\)
     r00t  std.root     srpf.root       DrawCompareMultiple.cxx\(\"std_vector_electron_R9[0]\",100,0.5,1.1,\"abs\(std_vector_lepton_eta[0]\)\>1.5\"\)
     
+    r00t  std.root     srpf.root       DrawCompareMultiple.cxx\(\"mll\",100,50,150,\"1\"\)
+    r00t  std.root     srpf.root       DrawCompareMultiple.cxx\(\"mll\",100,50,150,\"abs\(std_vector_lepton_eta[0]\)\<1.5\"\)
+    r00t  std.root     srpf.root       DrawCompareMultiple.cxx\(\"mll\",100,50,150,\"abs\(std_vector_lepton_eta[0]\)\>1.5\"\)
     
     
