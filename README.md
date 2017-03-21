@@ -138,7 +138,7 @@ SR in PF:
     
     
     ./test-run-8x-data-forECAL-SRPF.sh  2000
-    ./test-run-8x-data-forECAL-SRPF.sh  20000
+    ./test-run-8x-data-forECAL-SRPF.sh  10000
     
     gardener.py  l2selfiller   latino_stepB_data_std_numEvent10000.root    std.root
     gardener.py  l2selfiller   latino_stepB_data_highzshighgath_numEvent10000.root    highzshighgath.root
@@ -147,7 +147,10 @@ SR in PF:
     
     gardener.py  l2selfiller   latino_stepB_data_NEW_highzshighgath_numEvent2000.root    srpf.root
     gardener.py  l2selfiller   latino_stepB_data_NEW_std_numEvent2000.root          std.root
-    
+
+    gardener.py  l2selfiller   latino_stepB_data_NEW_highzshighgath_numEvent10000.root    srpf.root
+    gardener.py  l2selfiller   latino_stepB_data_NEW_std_numEvent10000.root          std.root
+
     
     cd /afs/cern.ch/work/a/amassiro/Latinos/Framework/CMSSW_8_0_26_patch1/src/LatinoAnalysis/ShapeAnalysis/test/draw/
     r00t  std.root     srpf.root       DrawCompareMultiple.cxx\(\"std_vector_electron_full5x5R9[0]\",100,0.5,1.1,\"1\"\)
