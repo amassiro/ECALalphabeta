@@ -154,7 +154,7 @@ SR in PF:
     
     cd /afs/cern.ch/work/a/amassiro/Latinos/Framework/CMSSW_8_0_26_patch1/src/LatinoAnalysis/ShapeAnalysis/test/draw/
     r00t  std.root     srpf.root       DrawCompareMultiple.cxx\(\"std_vector_electron_full5x5R9[0]\",100,0.5,1.1,\"1\"\)
-    r00t  std.root     srpf.root       DrawCompareMultiple.cxx\(\"std_vector_electron_energy5x5[0]\",100,10,100,\"1\"\)
+    r00t  std.root     srpf.root       DrawCompareMultiple.cxx\(\"std_vector_electron_energy5x5[0]\",100,10,200,\"1\"\)
     r00t  std.root     srpf.root       DrawCompareMultiple.cxx\(\"std_vector_electron_ecalPFClusterIso[0]\",100,0,3,\"1\"\)
     r00t  std.root     srpf.root       DrawCompareMultiple.cxx\(\"jetRho\",100,0,100,\"1\"\)
     r00t  std.root     srpf.root       DrawCompareMultiple.cxx\(\"std_vector_lepton_pt[0]\",100,0,100,\"1\"\)
@@ -167,5 +167,10 @@ SR in PF:
     r00t  std.root     srpf.root       DrawCompareMultiple.cxx\(\"mll\",100,50,150,\"1\"\)
     r00t  std.root     srpf.root       DrawCompareMultiple.cxx\(\"mll\",100,50,150,\"abs\(std_vector_lepton_eta[0]\)\<1.5\"\)
     r00t  std.root     srpf.root       DrawCompareMultiple.cxx\(\"mll\",100,50,150,\"abs\(std_vector_lepton_eta[0]\)\>1.5\"\)
+    
+    r00t  std.root     srpf.root       DrawCompareMultiple.cxx\(\"std_vector_electron_ecalPFClusterIso[0]\",100,0,3,\"abs\(std_vector_lepton_eta[0]\)\<1.5\"\)
+    r00t  std.root     srpf.root       DrawCompareMultiple.cxx\(\"std_vector_electron_ecalPFClusterIso[0]\",100,0,3,\"abs\(std_vector_lepton_eta[0]\)\>1.5\"\)
+    
+    
     
     
