@@ -172,5 +172,10 @@ SR in PF:
     r00t  std.root     srpf.root       DrawCompareMultiple.cxx\(\"std_vector_electron_ecalPFClusterIso[0]\",100,0,3,\"abs\(std_vector_lepton_eta[0]\)\>1.5\"\)
     
     
+    r00t  std.root     srpf.root       DrawCompareMultiple.cxx\(\"std_vector_electron_full5x5_sigmaIetaIeta[0]\",100,0.0,0.05,\"1\"\)
+    r00t  std.root     srpf.root       DrawCompareMultiple.cxx\(\"std_vector_electron_dEtaSeedCalo[0]\",100,-0.02,0.02,\"1\"\)
+    r00t  std.root     srpf.root       DrawCompareMultiple.cxx\(\"std_vector_electron_dPhiSeedCalo[0]\",100,-0.02,0.02,\"1\"\)
+    
+    
     
     
